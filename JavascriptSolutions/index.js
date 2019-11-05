@@ -1,5 +1,25 @@
 //Solutions for CodeWars Kata's in Javascript
 
+//https://www.codewars.com/kata/5318f00b31b30925fd0001f8
+//5 kyu "Formatting a number as price"
+var numberToPrice = function(number) {
+let answer;
+ if (isNaN(number)){
+  return 'NaN';
+  } else {
+   let result = new Intl.NumberFormat('en-US', {
+   currency: 'USD',
+   minimumFractionDigits: 3,
+   maximumFractionDigits: 3
+ });
+ let answer = result.format(number).slice(0, -1);
+   if (answer === '0.00') {
+    return 'NaN';
+  }
+  return answer;
+ }
+}
+
 //https://www.codewars.com/kata/514a024011ea4fb54200004b
 //5 kyu "Extract the domain name from a URL"
 function domainName(url){
